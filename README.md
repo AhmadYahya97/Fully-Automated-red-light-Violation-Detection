@@ -12,18 +12,35 @@ A crucial part in building a system for vehicle violation detection is specifyin
   • First, the region is to be represented as any vertical area within the video which surpasses a certain threshold horizontal line, referred to as the violation line, which splits the road into a regular and violating zone, as the main goal of the system evidentially becomes to determine the vertical location of this horizontal line. 
   • Second, in order to obtain clear info and indication towards the approximate vertical location of the violation line, it is required that a crosswalk exists between the regular and violating area, within the vicinity of the traffic light. The previously discussed assumptions are depicted in the following figure.
 
+![Alt text](/lineDetection1.PNG?raw=true "Violation line approximation")
+
 The figure shows the desired approximation of the violation line, as the location of the pedestrian crossway is the main element taken into consideration. Therefore, as a first step it was necessary to obtain clear locations of the crosswalk components. In order to obtain locations of crosswalk components, a sequence of processing steps was done, summarized as follows: 
   1. Convert the image into a greyscale in order to be used as an input to binary level thresholding. 
 
   2. Binarize the image based on an experimentally decided threshold value.
 
+![Alt text](/lineDetection2.PNG?raw=true "Image thresholding")
 
   3. Perform a sequence of erosion and dilation operations in order to improve the components representing the crosswalk,      and also to limit the level of noise present in the image following the binarization.
+
+![Alt text](/lineDetection3.PNG?raw=true "Dilation output")
+
   4. Following the output of dilation and erosion, it is now possible to detect contours in the binary image and show them      on the original frame, a contour is a closed curve of points or line segments, representing the boundaries of an object      in an image.
+
+![Alt text](/lineDetection4.PNG?raw=true "Erosion output")
+
   5. As seen in the output in Figure 2-6, many contours give no information at all as they are just bounding segments of        white blobs. A filtering method is now needed in order to return the contours of the crosswalk components, which is done    first by taking into consideration the contours represented within a limited number of points and area, which lowers        randomness in the resulting contours.
+
+![Alt text](/lineDetection5.PNG?raw=true "Finding contours")
+
   6. The final step is to accept only contours with approximating points that describe a rectangular shape based on the        OpenCV polygon approximation.
+
+![Alt text](/lineDetection6.PNG?raw=true "Contours filtering")
+
   7. For better visualization and analysis , bounding boxes for each contour are shown.
   Now that the crosswalk components have been detected, an extra step to avoid false positive contours is considered, as the   closest contour to the traffic light is found and is then considered as the component corresponding the crosswalk as a       whole. The vertical coordinate of this component is used to finally draw the horizontal violation line to be used in the     tracking logic and violation criteria.
+
+![Alt text](/lineDetection7.PNG?raw=true "Rectangular contours filtering")
   
 
 ### Vehicle detection
