@@ -19,29 +19,32 @@ The figure shows the desired approximation of the violation line, as the locatio
 
   2. Binarize the image based on an experimentally decided threshold value.
 
-![Alt text](/lineDetection2.PNG?raw=true "Image thresholding")
+![Alt text](/lineDetection2.png?raw=true "Image thresholding")
 
   3. Perform a sequence of erosion and dilation operations in order to improve the components representing the crosswalk,      and also to limit the level of noise present in the image following the binarization.
 
-![Alt text](/lineDetection3.PNG?raw=true "Dilation output")
+![Alt text](/lineDetection3.png?raw=true "Dilation and Erosion")
 
   4. Following the output of dilation and erosion, it is now possible to detect contours in the binary image and show them      on the original frame, a contour is a closed curve of points or line segments, representing the boundaries of an object      in an image.
 
-![Alt text](/lineDetection4.PNG?raw=true "Erosion output")
+![Alt text](/lineDetection4.png?raw=true "Finding contours")
 
   5. As seen in the output in Figure 2-6, many contours give no information at all as they are just bounding segments of        white blobs. A filtering method is now needed in order to return the contours of the crosswalk components, which is done    first by taking into consideration the contours represented within a limited number of points and area, which lowers        randomness in the resulting contours.
 
-![Alt text](/lineDetection5.PNG?raw=true "Finding contours")
+![Alt text](/lineDetection5.png?raw=true "Contours filtering")
 
   6. The final step is to accept only contours with approximating points that describe a rectangular shape based on the        OpenCV polygon approximation.
 
-![Alt text](/lineDetection6.PNG?raw=true "Contours filtering")
+![Alt text](/lineDetection6.png?raw=true "Rectangular contours filtering")
 
   7. For better visualization and analysis , bounding boxes for each contour are shown.
   Now that the crosswalk components have been detected, an extra step to avoid false positive contours is considered, as the   closest contour to the traffic light is found and is then considered as the component corresponding the crosswalk as a       whole. The vertical coordinate of this component is used to finally draw the horizontal violation line to be used in the     tracking logic and violation criteria.
 
-![Alt text](/lineDetection7.PNG?raw=true "Rectangular contours filtering")
+![Alt text](/lineDetection7.png?raw=true "Crosswalk bounding boxes")
   
+Now that the crosswalk components have been detected, an extra step to avoid false positive contours is considered, as the closest contour to the traffic light is found and is then considered as the component corresponding the crosswalk as a whole. The vertical coordinate of this component is used to finally draw the horizontal violation line to be used in the tracking logic and violation criteria.
+
+![Alt text](/lineDetection8.png?raw=true "Finding closest box")
 
 ### Vehicle detection
 At each five frames, a detection is done using YOLOv3 pretrained model on COCO dataset. The detection output is formulated by several steps, from filtering the bounding boxes with low confidence rate and filtering any bounding box that isn’t a vehicle to finally doing non-maximum suppression to the detected boxes, so that each vehicle has only one bounding box.
