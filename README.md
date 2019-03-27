@@ -12,7 +12,7 @@ A crucial part in building a system for vehicle violation detection is specifyin
   • First, the region is to be represented as any vertical area within the video which surpasses a certain threshold horizontal line, referred to as the violation line, which splits the road into a regular and violating zone, as the main goal of the system evidentially becomes to determine the vertical location of this horizontal line. 
   • Second, in order to obtain clear info and indication towards the approximate vertical location of the violation line, it is required that a crosswalk exists between the regular and violating area, within the vicinity of the traffic light. The previously discussed assumptions are depicted in the following figure.
 
-![Alt text](/lineDetection1.PNG?raw=true "Violation line approximation")
+![Alt text](/lineDetection1.png?raw=true "Violation line approximation")
 
 The figure shows the desired approximation of the violation line, as the location of the pedestrian crossway is the main element taken into consideration. Therefore, as a first step it was necessary to obtain clear locations of the crosswalk components. In order to obtain locations of crosswalk components, a sequence of processing steps was done, summarized as follows: 
   1. Convert the image into a greyscale in order to be used as an input to binary level thresholding. 
