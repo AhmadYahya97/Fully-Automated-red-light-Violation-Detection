@@ -92,6 +92,9 @@ Such results like those shown above are slight imperfections which result due to
 
 ## Results
 
+### Youtube: https://www.youtube.com/watch?v=7UjyifjnzJg
+
+### Before and After shots
 ![Alt text](/output_appendix1.png?raw=true "Output Appendix 1")
 ![Alt text](/output_appendix2.png?raw=true "Output Appendix 2")
 
