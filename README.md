@@ -73,6 +73,11 @@ The following table presents the average processing time for the metrics mention
 ### Precision and Recall
 Traffic surveillance systems in general have a high level of variability and dependency and are therefore prone to error and misclassification. Hence, it is necessary to calculate common measures such as average values of precision and recall in order to gain knowledge regarding system performance. In the implemented violation system, misclassification occurred rarely due to abnormal cases present in the input video First, a false positive misclassification occurred due to the violation line extension to a region beyond the scope of the target traffic light, which is a problem concerning the topology of the road and its corresponding lanes. The following figure depicts such misclassification:
 
+|                | Violating | Non-Violating |
+| ---------------|-----------|-------------- | 
+| Violating      | 20        | 1             |
+|  Non-Violating | 2         | 101           |
+
 
 
 Opposed to the false positive case shown above, rare cases of false negative misclassifications may occur. The following case due to the perspective angle of the camera along with the relatively large size of the vehicle is an example of false negative misclassification, as the violating vehicle is not detected:
