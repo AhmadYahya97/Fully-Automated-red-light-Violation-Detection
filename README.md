@@ -63,6 +63,12 @@ An important aspect in implementing a violation system is to thoroughly asses th
 ### Processing Time Evaluation
 The following table presents the average processing time for the metrics mentioned above following the testing of the input videos:
 
+| Measurement                                   | Average Value (Seconds) |
+| --------------------------------------------- | ----------------------- |
+| Traffic Light Localization                    | 0.267                   |
+| Violation Line Approximation                  | 1.933                   |
+| Tracking and Violating Detection per Frame    | 0.294                   |
+
 
 ### Precision and Recall
 Traffic surveillance systems in general have a high level of variability and dependency and are therefore prone to error and misclassification. Hence, it is necessary to calculate common measures such as average values of precision and recall in order to gain knowledge regarding system performance. In the implemented violation system, misclassification occurred rarely due to abnormal cases present in the input video First, a false positive misclassification occurred due to the violation line extension to a region beyond the scope of the target traffic light, which is a problem concerning the topology of the road and its corresponding lanes. The following figure depicts such misclassification:
