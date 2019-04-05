@@ -84,6 +84,12 @@ Opposed to the false positive case shown above, rare cases of false negative mis
 
 Such results like those shown above are slight imperfections which result due to the high variability and randomness present in the input test video. It is worth noting that the process is completely automated in a manner where each component is non-parametrized as the system’s only input is the test video itself. Nevertheless, a total of 20 input videos were used to test the performance of the system with considering the classification output of each vehicle crossing the violation line under all conditions, the following is the resulting confusion matrix followed by precision, recall and F1-Score from outputs of the whole test set: 
 
+|                | Precision | Recall | F1-Score  |
+| ---------------|-----------|--------| --------- | 
+| Violating      | 0.91      | 0.95   | 0.93      |
+|  Non-Violating | 0.99      | 0.98   | 0.98      |
+
+
 ## Results
 
 
